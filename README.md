@@ -6,6 +6,7 @@ The source of learning Q is [Q For Mortals 3](https://code.kx.com/q4m3).
 
 Each section in that document will be a section in here, with added comparisons (Haskell and Citron currently), and possibly my thoughts about the section, if any.
 
+Note for the people reading the markdown: Since github does not have Citron syntax highlighting, some supported languages with similar-enough outputs are used to get syntax highlighting :)
 
 ## 1.1 Starting q
 
@@ -78,7 +79,7 @@ That's pretty normal for a dynamic language, sure.
 
 Not particularly unusual, a comparison with Citron:
 
-```
+```kt
 1 + var a is 42
 43
 ```
@@ -114,6 +115,7 @@ They seem to share the same semantics as Symbols in Citron:
 \thing
 
 \thing = \other-thing
+False
 ```
 
 ## 1.9 List 101
@@ -164,7 +166,7 @@ And now it shows its APL influence, pretty cool.
 you can't do _that_ in Haskell (without extra definitions anyway)
 
 Citron has a similar thing as `Data/Vectorized`, though for a different purpose (SIMD):
-```
+```kt
 Vector[x,, 0..9] + 1
 Vector[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
@@ -184,7 +186,7 @@ In Haskell, we can use `(++) :: [a] -> [a] -> [a]`
 ```
 
 and Citron just overloads `+`:
-```
+```kt
 [1, 2, 3] + [4, 5]
 [1, 2, 3, 4, 5]
 ```
@@ -230,7 +232,7 @@ Here's the haskell version, for comparison:
 ```
 
 And the citron version:
-```
+```kt
 \:a:x a * x
 ```
 
@@ -241,7 +243,7 @@ Application can be done with square brackets (very similar to citron here):
 ```
 
 In citron:
-```
+```kt
 {\:x:y x * y}[1, 4]
 4
 ```
@@ -259,7 +261,7 @@ Haskell:
 4
 ```
 And Citron requires the hosting object name, but is otherwise similar:
-```
+```kt
 (Number:::'*')[1, 4]
 4
 ```
@@ -288,7 +290,7 @@ foldl1 (*) $ fmap (+1) [0..9]
 ```
 
 In citron, this looks like
-```
+```kt
 Vector[x,, 0..9] + 1 foldl: (Number:::'*')
 3628800
 ```
